@@ -2,7 +2,6 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-data = np.genfromtxt('./centred_2.csv', delimiter=",")
 
 class KMeans: 
     def __init__(self, k):
@@ -48,11 +47,18 @@ class KMeans:
         return y
     
 
-#random_points = np.random.randint(0, 100, (100, 2))
+# On importe notre dataset
+data = np.genfromtxt('./centred_2.csv', delimiter=",")
+print(data)
 
+#création d'une instance de kmeans
 kmeans = KMeans(k=3)
 
+# entrainement du modèle
 labels = kmeans.fit(data)
+
+
+#un petit graphique 
 
 plt.scatter(data[:, 0], data[:, 1], c= labels)
 
